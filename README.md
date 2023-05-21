@@ -1,4 +1,4 @@
-# @andatoshiki/toshiki-start (俊樹の Start)
+# @andatoshiki/toshiki-start (俊樹のStart)
 
 > An elegant yet fresh startup browser page enchanted based on lime with a tons of features and aesthetics by @andatoshiki
 
