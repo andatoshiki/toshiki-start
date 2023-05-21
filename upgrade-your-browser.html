@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://start.toshiki.dev/upgrade-your-browser.html -->
+<html lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <meta name="renderer" content="webkit" />
+        <meta name="force-rendering" content="webkit" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Please upgrade your browser</title>
+        <meta
+            name="description"
+            content="This is an open notice page of upgrading browsers from old IE versions, normal users could rapidly understand the reason of why upgrading and how to upgrade, developers could use the code provided by this page to link upgrading notice page to their own sites."
+        />
+        <link rel="canonical" href="https://start.toshiki.dev/upgrade-your-browser.html" />
+        <base href="https://start.toshiki.dev" target="_blank">
+        <base href="." target="_blank" />
+        <script src="./upgrade/er3eport.js.download"></script>
+        <link rel="icon" type="image/png" href="https://start.toshiki.dev/images/favicon.png" />
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <meta http-equiv="Cache-Control" content="no-transform" />
+        <link type="text/css" rel="stylesheet" href="./upgrade/support.style.css" />
+        <script>
+            var l = window.location,
+                s = l.search.substr(1),
+                ra = 1,
+                r = '',
+                dr = document.referrer,
+                r1 = s.match(/(^|&)referrer=((http|https)[^&]*)/),
+                r2 = s.match(/^referrer=((http|https)\:\/\/.*)$/)
+            if (r2 !== null) r = r2[1]
+            else if (r1 !== null) r = r1[2]
+            if (
+                r === '' &&
+                dr !== '' &&
+                ra === 1 &&
+                dr.match(
+                    /\/(?:.*\.dmeng\.net|(?:(?:(?:www|m|wap|cn|search)\.)?(?:google|baidu|sogou|bing|so|yahoo|yandex|duckduckgo)\.com(?:\.[a-z]+)?))/
+                ) === null
+            ) {
+                l.href = l.protocol + '//' + l.hostname + l.pathname + '?referrer=' + encodeURIComponent(dr) + '&' + s
+            }
+            var url = decodeURIComponent(r)
+            if (url.indexOf(window.location.hostname + '/') != -1) url = ''
+            var targetUrlHTML = ''
+            if (url !== '') { 
+                var m = url.match(/^(https?\:\/\/[^/]+\/)index\.html$/)
+                targetUrlHTML =
+                    '&nbsp;<a href="' +
+                    url +
+                    '" onclick="alert(\'Right click to "copy shortcuts" (copy link) to upgrade to more advanced browsers in order to access\');return false;" rel="noreferrer">' +
+                    (m ? m[1] : url) +
+                    '</a>&nbsp;'
+            }
+        </script>
+    <body>
+        <div class="page">
+            <h1>It's time to upgrade your browsers</h1>
+            <p>
+                You are using the older version of Internet Explorer（Version below IE11 or browser using such browser
+                core）This indicates before you upgrade your browser, you will not be able to access this website.
+            </p>
+            <div class="hr"></div>
+            <h2>Please notice: Service support for Windows XP and older version of Internet explorer is already terminated.</h2>
+            <!-- Please notice: Service support for Windows XP and older version of Internet explorer is already terminated -->
+            <p>
+                <!-- Since 02/12/2016. Microsoft stopped its support for IE 11 as well as its following versions. Without critical security updates of browsers, your machines are more likely prone to harmful viruses, spying/monitoring softwares, as well as the attach from other malware services, these will steal or harm industrial data and information, visit  -->
+                Since 02/12/2016. Microsoft stopped its support for IE 11 as well as its following versions. Without critical security updates of browsers, your machines are more likely prone to harmful viruses, spying/monitoring softwares, as well as the attach from other malware services, these will steal or harm industrial data and information, visit
+                <a href="https://start.toshiki.dev/end-of-ie-support.html"
+                    >Microsoft's disclaimer of service terminal of older Internet Explorer version</a
+                >.
+            </p>
+            <div class="hr"></div>
+            <h2>More advanced browsers</h2>
+            <p class="targetline">
+                <!-- It is recommended to use the latest version of the following browsers. If your machine has installed with any of the following browsers, it is recommended to use them for fast accessing. -->
+                It is recommended to use the latest version of the following browsers. If your machine has installed with any of the following browsers, it is recommended to use them for fast accessing.<b
+                    id="referrer"
+                    ><script>
+                        document.write(targetUrlHTML)
+                    </script></b
+                >
+            </p>
+            <!-- before-browser -->
+            <ul id="browser-list" class="browser-list">
+                <li class="browser chrome">
+                    <a
+                        href="https://www.google.cn/chrome/thank-you.html?standalone=1&amp;statcb=0&amp;installdataindex=empty"
+                        id="browser-chrome-link"
+                        ><img
+                            src="./upgrade/chrome.png"
+                            width="34"
+                            height="34"
+                            alt="谷歌浏览器"
+                        />Chrome<span id="browser-chrome-badge">Google Chrome</span></a
+                    >
+                </li>
+                <li class="browser firefox">
+                    <a
+                        href="https://download.mozilla.org/?product=firefox-latest-ssl&amp;os=win&amp;lang=zh-CN"
+                        id="browser-firefox-link"
+                        ><img
+                            src="./upgrade/firefox.png"
+                            width="34"
+                            height="34"
+                            alt="Firefox Browser"
+                        />Firefox<span id="browser-firefox-badge">Mozilla Firefox</span></a
+                    >
+                </li>
+                <li class="browser edge">
+                    <a href="https://www.microsoft.com/zh-cn/windows/microsoft-edge" id="browser-edge-link"
+                        ><img
+                            src="./upgrade/edge.png"
+                            width="34"
+                            height="34"
+                            alt="微软浏览器"
+                        />Edge<span id="browser-edge-badge">Microsoft Edge</span></a
+                    >
+                </li>
+                <li class="browser ie2345">
+                    <a href="https://dn-2345.cdn.bcebos.com/2345explorer/p8_kbuild_v2.0.exe" id="browser-ie2345-link"
+                        ><img
+                            src="./upgrade/ie2345.png"
+                            width="34"
+                            height="34"
+                            alt="2345浏览器"
+                        />2345<span id="browser-ie2345-badge">Secured double core</span></a
+                    >
+                </li>
+                <li class="browser se360">
+                    <a
+                        href="https://dl.360safe.com/netunion/20140425/360se+75526+n1abed0ce91.exe"
+                        id="browser-se360-link"
+                        ><img
+                            src="./upgrade/se360.png"
+                            width="34"
+                            height="34"
+                            alt="360安全浏览器"
+                        />360<span id="browser-se360-badge">For noob users</span></a
+                    >
+                </li>
+                <li class="browser qqbrowser">
+                    <a
+                        href="https://cdntip-net-production-file-1251013107.file.myqcloud.com/myapp/rcps/d/85000/QQBrowser_subid@100002_urlid@100002.exe"
+                        id="browser-qqbrowser-link"
+                        ><img
+                            src="./upgrade/qqbrowser.png"
+                            width="34"
+                            height="34"
+                            alt="QQ浏览器9"
+                        />QQ<span id="browser-qqbrowser-badge">For Tencent users</span></a
+                    >
+                </li>
+                <li class="browser clearleft"></li>
+            </ul>
+            <!-- after-browser -->
+            <div class="hr"></div>
+            <h2>Why this page shows up?</h2>
+            <p>
+                <!-- If you do not understand what does "upgrading browsers" means, please ask your friends whom are familiar with computers on how to do so. If you are not using IE6/7/8/9, but using browsers such as 360 secured, QQ browser, Sougou browsers, then the potential cause of this page showing up is because you haven't upgrade them to the latest version for a while, upgrading will resolve this issue. -->
+                If you do not understand what does "upgrading browsers" means, please ask your friends whom are familiar with computers on how to do so. If you are not using IE6/7/8/9, but using browsers such as 360 secured, QQ browser, Sougou browsers, then the potential cause of this page showing up is because you haven't upgrade them to the latest version for a while, upgrading will resolve this issue.
+            </p>
+            <div class="hr"></div>
+            <h2>Let's resist IE6, IE7, IE8, IE9, IE10 altogether!</h2>
+            <!-- In order to respond to compatibility of this prior dominant browser, web designers are forced to do intense coding works. Yet for normal users, lower version of IE browsers are even a potential danger that causes harm. Most of the largest historical trojan virus infection disaster are spread via IE bugs. Therefore, let's resist outdated IE versions altogether to build a safer, and more stabilized environments! -->
+            <p>
+                In order to respond to compatibility of this prior dominant browser, web designers are forced to do intense coding works. Yet for normal users, lower version of IE browsers are even a potential danger that causes harm. Most of the largest historical trojan virus infection disaster are spread via IE bugs. Therefore, let's resist outdated IE versions altogether to build a safer, and more stabilized environments!
+            </p>
+            <div class="hr"></div>
+            <!-- Are you the technician or web masters of your sites? Please join the movement of disusing Internet Explorer -->
+            Are you the technician or web masters of your sites? Please join the movement of disusing Internet Explore.<a
+                href="https://start.toshiki.dev/kill-old-versions-of-ie.html"
+                > See more</a
+            >
+        </div>
+        <div style="display: none !important">
+            <script src="./upgrade/hm.js.download"></script>
+            <script id="hello-world-js" src="./upgrade/hello.world.js.download"></script>
+        </div>
+    </body>
+    <tinysnap-extension
+        ><template shadowrootmode="closed"
+            ><style>
+                #TinySnap {
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    z-index: 2147483620;
+                    cursor: crosshair !important;
+                    background: rgba(0, 0, 0, 0.01);
+                    font: normal normal normal 12px/1 Helvetica, arial, sans-serif;
+                }
+
+                #TinySnap,
+                #TinySnap * {
+                    margin: 0;
+                    box-sizing: border-box;
+                    padding: 0;
+                }
+
+                .TinySnap__selection {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    background: rgba(0, 0, 0, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.8);
+                    z-index: 999998;
+                }
+
+                @media (prefers-color-scheme: dark) {
+                    .TinySnap__selection {
+                        background: rgba(255, 255, 255, 0.2);
+                    }
+                }
+            </style>
+            <div data-v-app=""><!----></div></template
+        ></tinysnap-extension
+    >
+</html>

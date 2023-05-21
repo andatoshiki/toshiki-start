@@ -1,0 +1,8 @@
+# project info file
+package.json
+
+# package dependency lockfile
+pnpm-lock.json
+
+# upgrade browser notice page
+upgrade-your-browser.html

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>俊樹のStart</title>
+        <link rel="icon" href="favicon.ico" />
+        <!-- jQuery -->
+        <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js"></script>
+        <!-- stylesheets -->
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <link rel="stylesheet" type="text/css" href="./css/font.css" />
+        <link rel="stylesheet" type="text/css" href="./css/loading.css" />
+        <link rel="stylesheet" type="text/css" href="./css/mobile.css" />
+        <link rel="stylesheet" type="text/css" href="./css/animation.css" />
+        <!-- izitoast -->
+        <link
+            rel="stylesheet"
+            href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/izitoast/1.4.0/css/iziToast.min.css"
+        />
+        <script
+            type="text/javascript"
+            src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/izitoast/1.4.0/js/iziToast.min.js"
+        ></script>
+        <!-- umami -->
+        <script
+            async
+            defer
+            data-website-id="22f8d8d0-6e32-48c4-aefe-97a1eb8947cd"
+            src="https://umami.toshiki.dev/umami.js"
+        ></script>
+        <!-- if the user agent of the browser is ie, automatically redirect to update browser page -->
+        <script>
+            if (/*@cc_on!@*/ false || (!!window.MSInputMethodContext && !!document.documentMode))
+                window.location.href =
+                    'https://start.toshiki.dev/upgrade-your-browser/index.html?referrer=' +
+                    encodeURIComponent(window.location.href)
+        </script>
+    </head>
+
+    <body>
+        <!-- preload animation -->
+        <div id="loading-box">
+            <div class="loading-left-bg"></div>
+            <div class="loading-right-bg"></div>
+            <div class="spinner-box">
+                <div class="loader">
+                    <svg class="loaderSpinner" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            class="spinnerOut"
+                            d="M0 0 L 32 0, 32 32, 0 32, 0 0"
+                            stroke="#ffffff"
+                            fill="transparent"
+                        />
+                        <path
+                            class="spinnerIn"
+                            d="M8 8 L 8 24, 24 24, 24 8, 8 8"
+                            stroke="#ffffff"
+                            strokeWidth="1"
+                            fill="transparent"
+                        />
+                    </svg>
+                    <svg class="loaderSpinner" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            class="spinnerOut"
+                            d="M0 0 L 32 0, 32 32, 0 32, 0 0"
+                            stroke="#ffffff"
+                            fill="transparent"
+                        />
+                        <path
+                            class="spinnerIn"
+                            d="M8 8 L 8 24, 24 24, 24 8, 8 8"
+                            stroke="#ffffff"
+                            strokeWidth="1"
+                            fill="transparent"
+                        />
+                    </svg>
+                </div>
+                <div class="loading-word">
+                    <p class="loading-title">俊樹のStart</p>
+                    <span id="loading-text">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <!-- wallpaper -->
+        <div class="bg-all">
+            <img id="bg" onerror="this.classList.add('error');" />
+            <div class="cover"></div>
+        </div>
+        <!-- main body content -->
+        <section id="section" class="section">
+            <div id="content">
+                <div class="con">
+                    <!-- 
+                        time and weather
+                        (weather feature has been disabled and switched to welcome text)
+                    -->
+                    <div class="tool-all">
+                        <div class="time">
+                            <span id="time_text">00<span id="point">:</span>00</span>
+                            <span id="day">0&nbsp;/&nbsp;00&nbsp;/&nbsp;Monday</span>
+                        </div>
+                        <div class="weather">
+                            <!-- <span id="wea_text">N/A</span>&nbsp;<span id="tem2">N/A</span>°C&nbsp;~&nbsp;<span
+                            id="tem1">N/A</span>°C -->
+                            <span>よろこそ！</span>
+                        </div>
+                    </div>
+                    <!-- search bar -->
+                    <div class="close_sou"></div>
+                    <div class="sou">
+                        <form class="search" action="https://www.baidu.com/s" target="_Blank">
+                            <div class="all-search">
+                                <div class="se" title="Click to switch search engine">
+                                    <i id="icon-se" class="iconfont icon-baidu"></i>
+                                </div>
+                                <input
+                                    class="wd"
+                                    type="text"
+                                    name="wd"
+                                    placeholder="What do you want to search for?"
+                                    autocomplete="off"
+                                />
+                                <div class="sou-button">
+                                    <div class="s" id="s-button">
+                                        <i id="icon-sou" class="iconfont icon-sousuo"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="submit" id="search-submit" style="display: none" />
+                        </form>
+                        <div id="keywords" style="display: none"></div>
+                        <div class="search-engine" style="display: none">
+                            <div class="search-engine-list">
+                                <div class="se-li">
+                                    <a
+                                        class="se-li-text"
+                                        data-url="https://www.baidu.com/s"
+                                        data-name="wd"
+                                        data-icon="iconfont icon-baidu"
+                                    >
+                                        <i id="icon-sou-list" class="iconfont icon-sousuo"></i>
+                                        <span>Baidu</span>
+                                    </a>
+                                </div>
+                                <div
+                                    class="se-li"
+                                    data-url="https://cn.bing.com/search"
+                                    data-name="q"
+                                    data-icon="iconfont icon-bing"
+                                >
+                                    <a class="se-li-text">
+                                        <i id="icon-sou-list" class="iconfont icon-bing"></i>
+                                        <span>Bing</span>
+                                    </a>
+                                </div>
+                                <div
+                                    class="se-li"
+                                    data-url="https://www.google.com/search"
+                                    data-name="q"
+                                    data-icon="iconfont icon-google"
+                                >
+                                    <a class="se-li-text">
+                                        <i id="icon-sou-list" class="iconfont icon-google"></i>
+                                        <span>Google</span>
+                                    </a>
+                                </div>
+                                <div
+                                    class="se-li"
+                                    data-url="https://www.sogou.com/web"
+                                    data-name="query"
+                                    data-icon="iconfont icon-bing"
+                                >
+                                    <a class="se-li-text">
+                                        <i id="icon-sou-list" class="iconfont icon-sougousousuo"></i>
+                                        <span>Sougou</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- bookmark page -->
+                    <div class="mark" style="display: none">
+                        <div class="tab">
+                            <div class="tab-item active">Com</div>
+                            <div class="tab-item">Tool</div>
+                            <div class="tab-item">Dev</div>
+                            <div class="tab-item">Amu</div>
+                            <div class="tab-item">Learn</div>
+                            <div class="tab-item">Des</div>
+                        </div>
+                        <div class="content products">
+                            <!-- common -->
+                            <div class="mainCont selected">
+                                <div class="quick-all">
+                                    <div class="quick">
+                                        <a href="https://github.com/" target="_blank"> GitHub </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- dev -->
+                            <div class="mainCont">
+                                <div class="quick-alls">
+                                    <div class="quicks">
+                                        <a href="https://tool.chinaz.com/" target="_blank"> ChinaZ </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://www.toolnb.com/" target="_blank"> ToolNB </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://www.aconvert.com/cn/" target="_blank"> Aconvert </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://next.itellyou.cn/" target="_blank"> MSDN </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://www.bejson.com/" target="_blank"> BEJSON </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://zh.z-lib.org/" target="_blank"> Z-Library </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://ebook.huzerui.com/" target="_blank"> Huzerui </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://vocalremover.org/ch/" target="_blank"> VocalreMover </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://tiomg.org/" target="_blank"> Tiomg </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://s.threatbook.cn/" target="_blank"> Threatbook </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://www.tablesgenerator.com/" target="_blank"> Table </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://write.imsyy.top/" target="_blank"> MD Editor </a>
+                                    </div>
+                                    <div class="quicks">
+                                        <a href="https://vocalremover.org/ch/" target="_blank"> VocalreMover </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- tool -->
+                            <div class="mainCont">
+                                <div class="quick-alls">
+                                    <div class="quicks" data-s="bilibili" title="BiliBili (゜-゜)つロ 干杯~">
+                                        <a href="https://www.bilibili.com/" target="_blank"> BiliBili </a>
+                                    </div>
+                                    <div class="quicks" data-s="github" title="GitHub">
+                                        <a href="https://github.com/" target="_blank"> GitHub </a>
+                                    </div>
+                                    <div class="quicks" data-s="v2ex" title="V2EX">
+                                        <a href="https://www.v2ex.com/" target="_blank"> V2EX </a>
+                                    </div>
+                                    <div class="quicks" data-s="steam" title="Steam">
+                                        <a href="https://store.steampowered.com/" target="_blank"> Steam </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- amuse -->
+                            <div class="mainCont">
+                                <div class="quick-alls">
+                                    <div class="quicks" data-s="bilibili" title="BiliBili (゜-゜)つロ 干杯~">
+                                        <a href="https://www.bilibili.com/" target="_blank"> BiliBili </a>
+                                    </div>
+                                    <div class="quicks" data-s="github" title="GitHub">
+                                        <a href="https://github.com/" target="_blank"> GitHub </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 学习 -->
+                            <div class="mainCont">
+                                <div class="quick-alls">
+                                    <div class="quicks" data-s="bilibili" title="BiliBili (゜-゜)つロ 干杯~">
+                                        <a href="https://www.bilibili.com/" target="_blank"> BiliBili </a>
+                                    </div>
+                                    <div class="quicks" data-s="github" title="GitHub">
+                                        <a href="https://github.com/" target="_blank"> GitHub </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- design -->
+                            <div class="mainCont">
+                                <div class="quick-alls">
+                                    <div class="quicks" data-s="bilibili" title="BiliBili (゜-゜)つロ 干杯~">
+                                        <a href="https://www.bilibili.com/" target="_blank"> BiliBili </a>
+                                    </div>
+                                    <div class="quicks" data-s="github" title="GitHub">
+                                        <a href="https://github.com/" target="_blank"> GitHub </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- set icons -->
+                    <div id="menu">
+                        <i id="icon-menu" class="iconfont icon-shezhi"></i>
+                    </div>
+                    <!-- setting page -->
+                    <div class="set" style="display: none">
+                        <div class="tabs">
+                            <div class="tab-items actives">Search</div>
+                            <div class="tab-items" id="set-quick-menu">Shortcut</div>
+                            <div class="tab-items">Wallpaper</div>
+                            <div class="tab-items">Backup</div>
+                        </div>
+                        <div class="contents productss">
+                            <!-- search engine setting -->
+                            <div class="mainConts selected">
+                                <div class="set_blocks">
+                                    <div class="set_blocks_content">
+                                        <div class="se_list">
+                                            <div class="se_list_table">
+                                                <div class="se_list_div">
+                                                    <div class="se_list_num">
+                                                        <i class="iconfont icon-home"></i>
+                                                    </div>
+                                                    <div class="se_list_name">Baidu</div>
+                                                    <div class="se_list_button">
+                                                        <button
+                                                            class="set_se_default"
+                                                            value="baidu"
+                                                            style="border-radius: 8px 0px 0px 8px"
+                                                        >
+                                                            <span class="iconfont icon-home"></span>
+                                                        </button>
+                                                        <button class="edit_se" value="baidu">
+                                                            <span class="iconfont icon-xiugai"></span>
+                                                        </button>
+                                                        <button
+                                                            class="delete_se"
+                                                            value="baidu"
+                                                            style="border-radius: 0px 8px 8px 0px"
+                                                        >
+                                                            <span class="iconfont icon-delete"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="se_list_div">
+                                                    <div class="se_list_num">2</div>
+                                                    <div class="se_list_name">Google</div>
+                                                    <div class="se_list_button">
+                                                        <button class="set_se_default" value="google">
+                                                            <span class="iconfont icon-home"></span>
+                                                        </button>
+                                                        <button class="edit_se" value="google">
+                                                            <span class="iconfont icon-xiugai"></span>
+                                                        </button>
+                                                        <button class="delete_se" value="google">
+                                                            <span class="iconfont icon-delete"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="se_add_preinstall">
+                                            <div class="set_se_list_add">
+                                                <span class="set_quick_text">Add</span>
+                                            </div>
+                                            <div class="set_se_list_preinstall">
+                                                <span class="set_quick_text">Reset</span>
+                                            </div>
+                                        </div>
+                                        <div class="add_content se_add_content" style="display: none">
+                                            <div class="froms">
+                                                <div class="from_items">
+                                                    <div class="from_text">Order</div>
+                                                    <input type="hidden" name="key_inhere" />
+                                                    <input
+                                                        type="number"
+                                                        name="key"
+                                                        placeholder="Please enter a positive integer that's less then 20"
+                                                        autocomplete="off"
+                                                        oninput="if(value>20)value=20;if(value<0)value=0"
+                                                    />
+                                                </div>
+                                                <div class="from_items">
+                                                    <div class="from_text">Name</div>
+                                                    <input
+                                                        type="text"
+                                                        name="title"
+                                                        placeholder="Search Engine"
+                                                        autocomplete="off"
+                                                    />
+                                                </div>
+                                                <div class="from_items">
+                                                    <div class="from_text">URL</div>
+                                                    <input
+                                                        type="url"
+                                                        name="url"
+                                                        placeholder="URL starts with either http or https"
+                                                        autocomplete="off"
+                                                    />
+                                                </div>
+                                                <div class="from_items">
+                                                    <div class="from_text">Field name</div>
+                                                    <input
+                                                        type="text"
+                                                        name="name"
+                                                        placeholder="Fields after ? in URL"
+                                                        autocomplete="off"
+                                                    />
+                                                </div>
+                                                <div class="from_items" style="display: none">
+                                                    <input
+                                                        type="text"
+                                                        name="icon"
+                                                        placeholder="iconfont icon-Earth"
+                                                        value="iconfont icon-Earth"
+                                                        disabled="disabled"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="from_items button">
+                                                <div class="se_add_save">Save</div>
+                                                <div class="se_add_cancel">Cancel</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- shortcut setting -->
+                            <div class="mainConts">
+                                <div class="set_blocks">
+                                    <div class="set_blocks_content">
+                                        <div class="quick_list">
+                                            <div class="quick_list_table">
+                                                <div class="quick_list_div">
+                                                    <div class="quick_list_div_num">1</div>
+                                                    <div class="quick_list_div_name">BiliBili</div>
+                                                    <div class="quick_list_div_button">
+                                                        <div class="edit_quick" value="1">
+                                                            <span class="iconfont iconbook-edit"></span>
+                                                        </div>
+                                                        <div class="delete_quick" value="1">
+                                                            <span class="iconfont icondelete"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="quick_list_div">
+                                                    <div class="quick_list_div_num">2</div>
+                                                    <div class="quick_list_div_name">Zhihu</div>
+                                                    <div class="quick_list_div_button">
+                                                        <button
+                                                            class="edit_quick"
+                                                            value="2"
+                                                            style="border-radius: 8px 0px 0px 8px"
+                                                        >
+                                                            <span class="iconfont iconbook-edit"></span>
+                                                        </button>
+                                                        <button
+                                                            class="delete_quick"
+                                                            value="2"
+                                                            style="border-radius: 0px 8px 8px 0px"
+                                                        >
+                                                            <span class="iconfont icondelete"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="se_add_preinstalls">
+                                            <div class="set_quick_list_add">
+                                                <span class="set_quick_text">Add</span>
+                                            </div>
+                                            <div class="set_quick_list_preinstall">
+                                                <span class="set_quick_text">Reset</span>
+                                            </div>
+                                        </div>
+                                        <div class="add_content quick_add_content" style="display: none">
+                                            <div class="froms">
+                                                <div class="from_items">
+                                                    <div class="from_text">Order</div>
+                                                    <input type="hidden" name="key_inhere" />
+                                                    <input
+                                                        type="number"
+                                                        name="key"
+                                                        placeholder="Please enter positive integer less than 100"
+                                                        autocomplete="off"
+                                                        oninput="if(value>99)value=99;if(value<0)value=0"
+                                                    />
+                                                </div>
+                                                <div class="from_items">
+                                                    <div class="from_text">Name</div>
+                                                    <input
+                                                        type="text"
+                                                        name="title"
+                                                        placeholder="Site name"
+                                                        autocomplete="off"
+                                                    />
+                                                </div>
+                                                <div class="from_items">
+                                                    <div class="from_text">URL</div>
+                                                    <input
+                                                        type="url"
+                                                        name="url"
+                                                        placeholder="URL starts with either http or https"
+                                                        autocomplete="off"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="from_items button">
+                                                <div class="quick_add_save">Save</div>
+                                                <div class="quick_add_cancel">Cancel</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- wallpaper setting -->
+                            <div class="mainConts">
+                                <div class="set_blocks">
+                                    <div class="set_tip">
+                                        <!-- click on the option below to swap wallpapers, using wallpapers except default option might slow the loading speed of the page -->
+                                        <span class="set_text mobile"
+                                            >1. Click on the option below to swap wallpapers, using wallpapers except
+                                            default option might slow the loading speed of the page.</span
+                                        >
+                                        <!-- it's not recommended to use wallpapers in white color schemes, this might cause some page elements unable to recognize -->
+                                        <span class="set_text mobile"
+                                            >2. It's not recommended to use wallpapers in white color schemes, this
+                                            might cause some page elements unable to recognize.</span
+                                        >
+                                        <!-- click on the following options to check instructions of each, highlighted button indicates option selected, refresh the page to take effect after selection -->
+                                        <span class="set_text" id="wallpaper_text"
+                                            >Click on the following options to check instructions of each, highlighted
+                                            button indicates option selected, refresh the page to take effect after
+                                            selection.</span
+                                        >
+                                    </div>
+                                    <div class="set_blocks_content">
+                                        <div class="from_container">
+                                            <div class="froms">
+                                                <div class="from_row">
+                                                    <div class="from_row_content">
+                                                        <div id="wallpaper">
+                                                            <div class="form-radio">
+                                                                <input
+                                                                    type="radio"
+                                                                    id="radio1"
+                                                                    class="set-wallpaper"
+                                                                    name="wallpaper-type"
+                                                                    value="1"
+                                                                    style="display: none"
+                                                                />
+                                                                <label class="form-radio-label" for="radio1">
+                                                                    Default
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-radio">
+                                                                <input
+                                                                    type="radio"
+                                                                    id="radio2"
+                                                                    class="set-wallpaper"
+                                                                    name="wallpaper-type"
+                                                                    value="2"
+                                                                    style="display: none"
+                                                                />
+                                                                <label class="form-radio-label" for="radio2">
+                                                                    Bing
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-radio">
+                                                                <input
+                                                                    type="radio"
+                                                                    id="radio3"
+                                                                    class="set-wallpaper"
+                                                                    name="wallpaper-type"
+                                                                    value="3"
+                                                                    style="display: none"
+                                                                />
+                                                                <label class="form-radio-label" for="radio3">
+                                                                    Scenery
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-radio">
+                                                                <input
+                                                                    type="radio"
+                                                                    id="radio4"
+                                                                    class="set-wallpaper"
+                                                                    name="wallpaper-type"
+                                                                    value="4"
+                                                                    style="display: none"
+                                                                />
+                                                                <label class="form-radio-label" for="radio4">
+                                                                    Anime
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-radio">
+                                                                <input
+                                                                    type="radio"
+                                                                    id="radio5"
+                                                                    class="set-wallpaper"
+                                                                    name="wallpaper-type"
+                                                                    value="5"
+                                                                    style="display: none"
+                                                                />
+                                                                <label class="from-radio-label" for="radio5">
+                                                                    R18
+                                                                </label>
+                                                            </div>
+                                                            <br />
+                                                            <div class="form-radio button6">
+                                                                <input
+                                                                    type="radio"
+                                                                    id="radio6"
+                                                                    class="set-wallpaper"
+                                                                    name="wallpaper-type"
+                                                                    value="6"
+                                                                    style="display: none"
+                                                                />
+                                                                <label class="form-radio-label" for="radio6">
+                                                                    Custom
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="wallpaper_url" style="display: none">
+                                                    <div class="from_row">
+                                                        <div class="from_items">
+                                                            <input
+                                                                type="text"
+                                                                name="wallpaper-url"
+                                                                id="wallpaper-url"
+                                                                placeholder="URL starts with either http or https"
+                                                                autocomplete="off"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="from_items button" id="wallpaper-button" style="display: none">
+                                            <div class="wallpaper_save">Save</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 数据备份设置 -->
+                            <div class="mainConts">
+                                <div class="set_blocks">
+                                    <div class="set_tip">
+                                        <span class="set_text"
+                                            >1. Click export will export your config file of this site to Download
+                                            folder of your local machine.</span
+                                        >
+                                        <!-- click on import allows users to recover backed-up config -->
+                                        <span class="set_text"
+                                            >2. Click on import allows users to recover backed-up config.</span
+                                        >
+                                        <!-- this features is still wip, you can reset in setting if any unexpected errors occur -->
+                                        <!-- <span class="set_text">This feature is still WIP, you can reset in setting in case any unexpected errors occur</span> -->
+                                    </div>
+                                    <div class="set_button">
+                                        <div class="but-ordinary" id="my_data_in">Import</div>
+                                        <div class="but-ordinary" id="my_data_out">Export</div>
+                                        <input type="file" id="my_data_file" name="file" style="display: none" />
+                                    </div>
+                                    <div class="set_version">
+                                        <span class="set_version-text">MADE&nbsp;BY&nbsp;安田俊樹</span>
+                                        <span class="set_version-text2">©&nbsp;俊樹のStart&nbsp;v&nbsp;0.0.1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- copyright info -->
+            <div class="foot">
+                <div class="power">
+                    Copyright&nbsp;&copy;&nbsp;2022
+                    <script>
+                        document.write(' - ' + new Date().getFullYear())
+                    </script>
+                    &nbsp;<a href="https://toshiki.dev">安田俊樹</a>
+                </div>
+            </div>
+        </section>
+        <!-- main body content ends -->
+        <!-- noscript -->
+        <noscript>
+            <div class="noscript fixed-top">Enable JavaScript</div>
+        </noscript>
+        <!-- JS -->
+        <script type="text/javascript" src="./js/main.js"></script>
+        <script type="text/javascript" src="./js/set.js"></script>
+        <script type="text/javascript" src="./js/js.cookie.js"></script>
+    </body>
+</html>
