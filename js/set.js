@@ -37,7 +37,7 @@ var se_list_preinstall = {
   },
   6: {
     id: 6,
-    title: '微博',
+    title: 'Weibo',
     url: 'https://s.weibo.com/weibo',
     name: 'q',
     icon: 'iconfont icon-xinlangweibo',
